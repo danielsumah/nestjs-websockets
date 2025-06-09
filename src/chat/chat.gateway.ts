@@ -5,7 +5,7 @@ export class ChatGateWay implements OnGatewayConnection, OnGatewayDisconnect{
     @WebSocketServer() server: Server
 
     handleConnection(client: Socket, ...args: any[]) {
-        this.server.emit("user-joined", {
+        client.broadcast.emit("user-joined", {
             message: `${client.id} joined the group`
         })
     }
