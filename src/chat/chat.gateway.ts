@@ -19,8 +19,8 @@ export class ChatGateWay implements OnGatewayConnection, OnGatewayDisconnect{
     @SubscribeMessage('new-message')
     handleEvent(client: Socket, message: any) {
         console.log({ message })
-        client.emit('response', `You sent: ${message}`)
-        this.server.emit('response', `Someone sent: ${message}`)
+        client.emit('message', `You sent: ${message}`)
+        this.server.emit('message', `Someone sent: ${message}`)
 
     }
 }
